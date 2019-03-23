@@ -721,6 +721,7 @@
 
 			// Only run if the field is in a form to be validated
 			if (!event.target.form || !event.target.form.matches(selector)) return;
+			if (event.relatedTarget.matches('[type="submit"]')) return;
 
 			// Validate the field
 			publicAPIs.validate(event.target);
@@ -817,10 +818,10 @@
 			addNoValidate(selector);
 
 			// Event Listeners
+			document.addEventListener('submit', submitHandler, false);
 			document.addEventListener('blur', blurHandler, true);
 			document.addEventListener('input', inputHandler, false);
 			document.addEventListener('click', inputHandler, false);
-			document.addEventListener('submit', submitHandler, false);
 
 			// Emit custom event
 			if (settings.emitEvents) {
