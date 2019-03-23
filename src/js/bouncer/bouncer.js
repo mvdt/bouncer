@@ -267,11 +267,15 @@
 	 * @return {Object}             The tests and their results
 	 */
 	var customValidations = function (field, errors, validations, settings) {
-		for (var test in validations) {
-			if (validations.hasOwnProperty(test)) {
-				errors[test] = validations[test](field, settings);
-			}
+		var tests = field.getAttribute('data-bouncer-custom-validations');
+		if (tests) {
+			tests.split(' ').forEach(function (test) {
+				if (validations.hasOwnProperty(test)) {
+					errors[test] = validations[test](field, settings);
+				}
+			})
 		}
+
 		return errors;
 	};
 
