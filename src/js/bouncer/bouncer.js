@@ -721,7 +721,7 @@
 
 			// Only run if the field is in a form to be validated
 			if (!event.target.form || !event.target.form.matches(selector)) return;
-			if (event.relatedTarget.matches('[type="submit"]')) return;
+			if (event.relatedTarget && event.relatedTarget.matches('[type="submit"]')) return;
 
 			// Validate the field
 			publicAPIs.validate(event.target);
