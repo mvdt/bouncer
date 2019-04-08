@@ -788,7 +788,7 @@
 		publicAPIs.destroy = function () {
 
 			// Remove event listeners
-			document.removeEventListener('blur', blurHandler, true);
+			// document.removeEventListener('blur', blurHandler, true);
 			document.removeEventListener('input', inputHandler, false);
 			document.removeEventListener('click', inputHandler, false);
 			document.removeEventListener('submit', submitHandler, false);
@@ -824,7 +824,7 @@
 
 			// Event Listeners
 			document.addEventListener('submit', submitHandler, false);
-			document.addEventListener('blur', blurHandler, true);
+			// document.addEventListener('blur', blurHandler, true);
 			document.addEventListener('input', inputHandler, false);
 			document.addEventListener('click', inputHandler, false);
 
